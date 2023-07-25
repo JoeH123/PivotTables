@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Custom Filters in a Pivot Table: | Pivot Tables in Excel</title>
+  <meta name="description" content="Chapter 5 Custom Filters in a Pivot Table: | Pivot Tables in Excel" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Custom Filters in a Pivot Table: | Pivot Tables in Excel" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Custom Filters in a Pivot Table: | Pivot Tables in Excel" />
+  
+  
+  
+
+<meta name="author" content="Joe Hobart" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="customizing-pivot-tables.html"/>
+<link rel="next" href="aggregating-data-with-pivot-tables.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#definition-and-purpose"><i class="fa fa-check"></i><b>1.1</b> Definition and Purpose</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#benefits-of-pivot-tables"><i class="fa fa-check"></i><b>1.2</b> Benefits of Pivot Tables</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#pivot-table-components"><i class="fa fa-check"></i><b>1.3</b> Pivot Table Components</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html"><i class="fa fa-check"></i><b>2</b> Getting Started with Pivot Tables</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#data-requirements"><i class="fa fa-check"></i><b>2.1</b> Data Requirements</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#preparing-the-data"><i class="fa fa-check"></i><b>2.2</b> Preparing the Data</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#creating-a-pivot-table-in-excel"><i class="fa fa-check"></i><b>2.3</b> Creating a Pivot Table in Excel</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#a-pivot-table-example"><i class="fa fa-check"></i><b>2.4</b> A Pivot Table Example</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#pivot-table-layout-and-structure"><i class="fa fa-check"></i><b>2.5</b> Pivot Table Layout and Structure</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-pivot-tables.html"><a href="getting-started-with-pivot-tables.html#another-example"><i class="fa fa-check"></i><b>2.6</b> Another Example</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html"><i class="fa fa-check"></i><b>3</b> Pivot Table Fields and Values</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#row-fields"><i class="fa fa-check"></i><b>3.1</b> Row Fields</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#what-are-row-fields"><i class="fa fa-check"></i><b>3.1.1</b> What are Row Fields?</a></li>
+<li class="chapter" data-level="3.1.2" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#adding-row-fields"><i class="fa fa-check"></i><b>3.1.2</b> Adding Row Fields:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#organizing-data-with-row-fields"><i class="fa fa-check"></i><b>3.1.3</b> Organizing Data with Row Fields:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#expanding-and-collapsing-row-fields"><i class="fa fa-check"></i><b>3.1.4</b> Expanding and Collapsing Row Fields:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#sorting-and-filtering-row-fields"><i class="fa fa-check"></i><b>3.1.5</b> Sorting and Filtering Row Fields:</a></li>
+<li class="chapter" data-level="3.1.6" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#customizing-row-field-settings"><i class="fa fa-check"></i><b>3.1.6</b> Customizing Row Field Settings:</a></li>
+<li class="chapter" data-level="3.1.7" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#summary-totals-in-row-fields"><i class="fa fa-check"></i><b>3.1.7</b> Summary Totals in Row Fields:</a></li>
+<li class="chapter" data-level="3.1.8" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#nested-row-fields"><i class="fa fa-check"></i><b>3.1.8</b> Nested Row Fields:</a></li>
+<li class="chapter" data-level="3.1.9" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#drill-down-analysis"><i class="fa fa-check"></i><b>3.1.9</b> Drill-Down Analysis:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#column-fields"><i class="fa fa-check"></i><b>3.2</b> Column Fields</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#what-are-column-fields"><i class="fa fa-check"></i><b>3.2.1</b> What are Column Fields?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#adding-column-fields"><i class="fa fa-check"></i><b>3.2.2</b> Adding Column Fields:</a></li>
+<li class="chapter" data-level="3.2.3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#analyzing-data-with-column-fields"><i class="fa fa-check"></i><b>3.2.3</b> Analyzing Data with Column Fields:</a></li>
+<li class="chapter" data-level="3.2.4" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#expanding-and-collapsing-column-fields"><i class="fa fa-check"></i><b>3.2.4</b> Expanding and Collapsing Column Fields:</a></li>
+<li class="chapter" data-level="3.2.5" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#sorting-and-filtering-column-fields"><i class="fa fa-check"></i><b>3.2.5</b> Sorting and Filtering Column Fields:</a></li>
+<li class="chapter" data-level="3.2.6" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#customizing-column-field-settings"><i class="fa fa-check"></i><b>3.2.6</b> Customizing Column Field Settings:</a></li>
+<li class="chapter" data-level="3.2.7" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#grouping-data-with-column-fields"><i class="fa fa-check"></i><b>3.2.7</b> Grouping Data with Column Fields:</a></li>
+<li class="chapter" data-level="3.2.8" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#calculations-within-column-fields"><i class="fa fa-check"></i><b>3.2.8</b> Calculations within Column Fields:</a></li>
+<li class="chapter" data-level="3.2.9" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#advanced-column-field-techniques"><i class="fa fa-check"></i><b>3.2.9</b> Advanced Column Field Techniques:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#value-fields"><i class="fa fa-check"></i><b>3.3</b> Value Fields</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#understanding-value-fields"><i class="fa fa-check"></i><b>3.3.1</b> Understanding Value Fields:</a></li>
+<li class="chapter" data-level="3.3.2" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#adding-value-fields"><i class="fa fa-check"></i><b>3.3.2</b> Adding Value Fields:</a></li>
+<li class="chapter" data-level="3.3.3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#aggregating-data-with-value-fields"><i class="fa fa-check"></i><b>3.3.3</b> Aggregating Data with Value Fields:</a></li>
+<li class="chapter" data-level="3.3.4" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#customizing-value-field-settings"><i class="fa fa-check"></i><b>3.3.4</b> Customizing Value Field Settings:</a></li>
+<li class="chapter" data-level="3.3.5" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#value-field-summarization"><i class="fa fa-check"></i><b>3.3.5</b> Value Field Summarization:</a></li>
+<li class="chapter" data-level="3.3.6" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#multiple-value-fields"><i class="fa fa-check"></i><b>3.3.6</b> Multiple Value Fields:</a></li>
+<li class="chapter" data-level="3.3.7" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#calculated-fields-with-value-fields"><i class="fa fa-check"></i><b>3.3.7</b> Calculated Fields with Value Fields:</a></li>
+<li class="chapter" data-level="3.3.8" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#formatting-and-conditional-formatting"><i class="fa fa-check"></i><b>3.3.8</b> Formatting and Conditional Formatting:</a></li>
+<li class="chapter" data-level="3.3.9" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#filtering-and-sorting-value-fields"><i class="fa fa-check"></i><b>3.3.9</b> Filtering and Sorting Value Fields:</a></li>
+<li class="chapter" data-level="3.3.10" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#drill-down-analysis-with-value-fields"><i class="fa fa-check"></i><b>3.3.10</b> Drill-Down Analysis with Value Fields:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#report-filters"><i class="fa fa-check"></i><b>3.4</b> Report Filters</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#adding-report-filters"><i class="fa fa-check"></i><b>3.4.1</b> Adding Report Filters:</a></li>
+<li class="chapter" data-level="3.4.2" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#applying-report-filters"><i class="fa fa-check"></i><b>3.4.2</b> Applying Report Filters:</a></li>
+<li class="chapter" data-level="3.4.3" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#filtering-numeric-and-date-fields"><i class="fa fa-check"></i><b>3.4.3</b> Filtering Numeric and Date Fields:</a></li>
+<li class="chapter" data-level="3.4.4" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#customizing-report-filter-settings"><i class="fa fa-check"></i><b>3.4.4</b> Customizing Report Filter Settings:</a></li>
+<li class="chapter" data-level="3.4.5" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#slicers-for-enhanced-filtering"><i class="fa fa-check"></i><b>3.4.5</b> Slicers for Enhanced Filtering:</a></li>
+<li class="chapter" data-level="3.4.6" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#using-timelines-for-date-filtering"><i class="fa fa-check"></i><b>3.4.6</b> Using Timelines for Date Filtering:</a></li>
+<li class="chapter" data-level="3.4.7" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#grouping-and-hierarchical-filtering"><i class="fa fa-check"></i><b>3.4.7</b> Grouping and Hierarchical Filtering:</a></li>
+<li class="chapter" data-level="3.4.8" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#dynamic-filtering-and-interactive-analysis"><i class="fa fa-check"></i><b>3.4.8</b> Dynamic Filtering and Interactive Analysis:</a></li>
+<li class="chapter" data-level="3.4.9" data-path="pivot-table-fields-and-values.html"><a href="pivot-table-fields-and-values.html#filtering-best-practices"><i class="fa fa-check"></i><b>3.4.9</b> Filtering Best Practices:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html"><i class="fa fa-check"></i><b>4</b> Customizing Pivot Tables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#changing-field-settings"><i class="fa fa-check"></i><b>4.1</b> Changing Field Settings</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#accessing-field-settings"><i class="fa fa-check"></i><b>4.1.1</b> Accessing Field Settings:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#modifying-value-field-settings"><i class="fa fa-check"></i><b>4.1.2</b> Modifying Value Field Settings:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#field-settings-best-practices"><i class="fa fa-check"></i><b>4.1.3</b> Field Settings Best Practices:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#grouping-data"><i class="fa fa-check"></i><b>4.2</b> Grouping Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#understanding-grouping-data-in-a-pivot-table"><i class="fa fa-check"></i><b>4.2.1</b> Understanding Grouping Data in a Pivot Table:</a></li>
+<li class="chapter" data-level="4.2.2" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#grouping-date-and-time-data"><i class="fa fa-check"></i><b>4.2.2</b> Grouping Date and Time Data:</a></li>
+<li class="chapter" data-level="4.2.3" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#grouping-numeric-data"><i class="fa fa-check"></i><b>4.2.3</b> Grouping Numeric Data:</a></li>
+<li class="chapter" data-level="4.2.4" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#grouping-text-data"><i class="fa fa-check"></i><b>4.2.4</b> Grouping Text Data:</a></li>
+<li class="chapter" data-level="4.2.5" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#creating-hierarchies"><i class="fa fa-check"></i><b>4.2.5</b> Creating Hierarchies:</a></li>
+<li class="chapter" data-level="4.2.6" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#applying-multiple-groupings"><i class="fa fa-check"></i><b>4.2.6</b> Applying Multiple Groupings:</a></li>
+<li class="chapter" data-level="4.2.7" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#dynamic-grouping"><i class="fa fa-check"></i><b>4.2.7</b> Dynamic Grouping:</a></li>
+<li class="chapter" data-level="4.2.8" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#benefits-of-grouping-data-in-a-pivot-table"><i class="fa fa-check"></i><b>4.2.8</b> Benefits of Grouping Data in a Pivot Table:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#sorting-and-filtering"><i class="fa fa-check"></i><b>4.3</b> Sorting and Filtering</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#sorting-data-in-a-pivot-table"><i class="fa fa-check"></i><b>4.3.1</b> Sorting Data in a Pivot Table:</a></li>
+<li class="chapter" data-level="4.3.2" data-path="customizing-pivot-tables.html"><a href="customizing-pivot-tables.html#filtering-data-in-a-pivot-table"><i class="fa fa-check"></i><b>4.3.2</b> Filtering Data in a Pivot Table:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html"><i class="fa fa-check"></i><b>5</b> Custom Filters in a Pivot Table:</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#sorting-and-filtering-best-practices"><i class="fa fa-check"></i><b>5.0.1</b> Sorting and Filtering Best Practices:</a></li>
+<li class="chapter" data-level="5.0.2" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#sorting-and-filtering-report-filters"><i class="fa fa-check"></i><b>5.0.2</b> Sorting and Filtering Report Filters:</a></li>
+<li class="chapter" data-level="5.0.3" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#clearing-sorting-and-filtering"><i class="fa fa-check"></i><b>5.0.3</b> Clearing Sorting and Filtering:</a></li>
+<li class="chapter" data-level="5.1" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#formatting-pivot-tables"><i class="fa fa-check"></i><b>5.1</b> Formatting Pivot Tables</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#applying-pivot-table-styles"><i class="fa fa-check"></i><b>5.1.1</b> Applying Pivot Table Styles:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#cell-formatting-in-a-pivot-table"><i class="fa fa-check"></i><b>5.1.2</b> Cell Formatting in a Pivot Table:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#charting-from-a-pivot-table"><i class="fa fa-check"></i><b>5.1.3</b> Charting from a Pivot Table:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="custom-filters-in-a-pivot-table.html"><a href="custom-filters-in-a-pivot-table.html#formatting-row-and-column-headers"><i class="fa fa-check"></i><b>5.1.4</b> Formatting Row and Column Headers:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aggregating-data-with-pivot-tables.html"><a href="aggregating-data-with-pivot-tables.html"><i class="fa fa-check"></i><b>6</b> Aggregating Data with Pivot Tables</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="aggregating-data-with-pivot-tables.html"><a href="aggregating-data-with-pivot-tables.html#summarizing-data"><i class="fa fa-check"></i><b>6.1</b> Summarizing Data:</a></li>
+<li class="chapter" data-level="6.2" data-path="aggregating-data-with-pivot-tables.html"><a href="aggregating-data-with-pivot-tables.html#counting-and-averaging-data"><i class="fa fa-check"></i><b>6.2</b> Counting and Averaging Data:</a></li>
+<li class="chapter" data-level="6.3" data-path="aggregating-data-with-pivot-tables.html"><a href="aggregating-data-with-pivot-tables.html#calculating-percentages-and-proportions"><i class="fa fa-check"></i><b>6.3</b> Calculating Percentages and Proportions:</a></li>
+<li class="chapter" data-level="6.4" data-path="aggregating-data-with-pivot-tables.html"><a href="aggregating-data-with-pivot-tables.html#working-with-dates-and-times"><i class="fa fa-check"></i><b>6.4</b> Working with Dates and Times:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="advanced-pivot-table-techniques.html"><a href="advanced-pivot-table-techniques.html"><i class="fa fa-check"></i><b>7</b> Advanced Pivot Table Techniques</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pivot Tables in Excel</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="custom-filters-in-a-pivot-table" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Custom Filters in a Pivot Table:<a href="custom-filters-in-a-pivot-table.html#custom-filters-in-a-pivot-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In addition to the standard filtering options, Excel provides custom filtering capabilities within a pivot table. Custom filters allow you to define specific filtering conditions based on your analysis requirements:</p>
+<ul>
+<li><p>Custom Text Filters: Custom text filters enable you to create custom filtering conditions using text criteria. This allows for more advanced text-based filtering, such as filtering data that contains specific words or phrases.</p></li>
+<li><p>Custom Date Filters: Custom date filters allow you to define custom filtering conditions for date and time fields. You can filter data based on specific date ranges, periods, or relative dates.</p></li>
+<li><p>Custom Number Filters: Custom number filters provide the flexibility to create custom filtering conditions based on numerical criteria. You can filter data based on specific ranges, greater than or less than values, or advanced calculations.</p></li>
+</ul>
+<div id="sorting-and-filtering-best-practices" class="section level3 hasAnchor" number="5.0.1">
+<h3><span class="header-section-number">5.0.1</span> Sorting and Filtering Best Practices:<a href="custom-filters-in-a-pivot-table.html#sorting-and-filtering-best-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To make the most of sorting and filtering in a pivot table, consider the following best practices:</p>
+<ul>
+<li><p>Understand Your Analysis Objectives: Before sorting and filtering data, have a clear understanding of your analysis objectives. Determine the specific insights you want to derive from the data, and identify the relevant sorting and filtering criteria.</p></li>
+<li><p>Refresh and Update Data: It is essential to refresh and update the pivot table data regularly, especially when working with dynamic datasets. This ensures that the sorting and filtering reflect the latest information.</p></li>
+<li><p>Utilize Multiple Sorting and Filtering Criteria: Instead of relying on a single sorting or filtering criterion, consider using multiple criteria to gain deeper insights. Combining different criteria allows you to focus on specific subsets of data and explore various aspects of your information.</p></li>
+<li><p>Document Your Sorting and Filtering Choices: It is helpful to document the sorting and filtering choices you make in your pivot table. This allows you to replicate your analysis, track your decision-making process, and share your findings with others.</p></li>
+</ul>
+</div>
+<div id="sorting-and-filtering-report-filters" class="section level3 hasAnchor" number="5.0.2">
+<h3><span class="header-section-number">5.0.2</span> Sorting and Filtering Report Filters:<a href="custom-filters-in-a-pivot-table.html#sorting-and-filtering-report-filters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Report filters are another powerful feature in pivot tables that allow you to filter data across the entire table. Sorting and filtering options for report filters work similarly to row and column fields, enabling you to narrow down the data displayed in the pivot table based on specific criteria.</p>
+<ul>
+<li><p>Sorting Report Filters: You can sort report filters alphabetically or numerically to arrange the filter values in a desired order. This makes it easier to locate specific values and navigate through the filter options.</p></li>
+<li><p>Filtering Report Filters: Filtering report filters allows you to include or exclude specific values or apply custom filtering conditions. This helps in focusing the analysis on subsets of data that are relevant to your analysis objectives.</p></li>
+</ul>
+</div>
+<div id="clearing-sorting-and-filtering" class="section level3 hasAnchor" number="5.0.3">
+<h3><span class="header-section-number">5.0.3</span> Clearing Sorting and Filtering:<a href="custom-filters-in-a-pivot-table.html#clearing-sorting-and-filtering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Excel provides options to clear sorting and filtering in a pivot table when you want to revert to the original state:</p>
+<ul>
+<li><p>Clear Sorting: To remove sorting from a field in a pivot table, you can click on the sort icon next to the field and select “Clear Sort.”</p></li>
+<li><p>Clear Filtering: To remove filtering from a field in a pivot table, you can click on the filter icon next to the field and select “Clear Filter.”</p></li>
+</ul>
+</div>
+<div id="formatting-pivot-tables" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Formatting Pivot Tables<a href="custom-filters-in-a-pivot-table.html#formatting-pivot-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Formatting is a crucial aspect of pivot table customization as it helps improve the visual appeal, readability, and overall presentation of the data. With Excel’s extensive formatting options, you can enhance the appearance of your pivot tables and highlight key insights. In this section, we will explore the importance of formatting in a pivot table, discuss various formatting techniques, and provide practical tips for effective formatting.</p>
+<div id="applying-pivot-table-styles" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Applying Pivot Table Styles:<a href="custom-filters-in-a-pivot-table.html#applying-pivot-table-styles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pivot table styles are predefined formatting sets in Excel that provide a consistent and visually appealing look to the pivot table. Excel offers a variety of built-in styles that you can apply with a single click. Here are some key aspects of applying pivot table styles:</p>
+<ul>
+<li><p>Selecting a Style: To apply a pivot table style, select any cell within the pivot table, navigate to the PivotTable Tools Design tab in the Excel ribbon, and choose a style from the available options. Excel provides various styles with different color schemes, font styles, and border designs.</p></li>
+<li><p>Modifying Style Elements: Pivot table styles are highly customizable. You can modify individual elements of a style, such as fonts, colors, shading, and borders. This allows you to tailor the style to match your specific preferences or branding requirements.</p></li>
+<li><p>Creating Custom Styles: Excel also allows you to create custom pivot table styles by modifying existing styles or creating new ones from scratch. This feature provides flexibility in designing unique styles that suit your specific needs.</p></li>
+</ul>
+</div>
+<div id="cell-formatting-in-a-pivot-table" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Cell Formatting in a Pivot Table:<a href="custom-filters-in-a-pivot-table.html#cell-formatting-in-a-pivot-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cell formatting enables you to modify the appearance of individual cells within a pivot table. This helps in highlighting specific values, emphasizing key insights, or improving data readability. Here are some common cell formatting options:</p>
+<ul>
+<li><p>Font Formatting: Excel provides various font formatting options, including font type, size, color, and style (bold, italic, underline). You can modify the font formatting for specific cells or ranges within the pivot table to draw attention to important information.</p></li>
+<li><p>Alignment and Indentation: Excel allows you to adjust the alignment and indentation of text within cells. You can align text to the left, center, or right of a cell and apply indentation for a more organized and structured presentation of data.</p></li>
+<li><p>Number Formatting: Number formatting helps in displaying numeric values in a desired format, such as currency, percentage, decimal places, or scientific notation. By applying number formatting, you can improve the readability and interpretation of numeric data within the pivot table.</p></li>
+<li><p>Conditional Formatting: Conditional formatting allows you to apply formatting rules based on specific conditions or criteria. This helps in visually highlighting patterns, trends, or outliers in the data. You can define custom rules or choose from a variety of predefined formatting options like color scales, data bars, icon sets, and more.</p></li>
+</ul>
+</div>
+<div id="charting-from-a-pivot-table" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Charting from a Pivot Table:<a href="custom-filters-in-a-pivot-table.html#charting-from-a-pivot-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Charting is a powerful visualization tool that enables you to present data in a graphical format. Excel allows you to create various types of charts directly from a pivot table. Here’s how you can chart from a pivot table:</p>
+<ul>
+<li><p>Selecting Data: Click on any cell within the pivot table, navigate to the PivotTable Tools Analyze or Options tab, and click on the “PivotChart” button. Excel will automatically select the pivot table data for chart creation.</p></li>
+<li><p>Choosing a Chart Type: Excel offers a wide range of chart types, including column charts, bar charts, line charts, pie charts, and more. Select the chart type that best represents your data and analysis requirements.</p></li>
+<li><p>Modifying Chart Elements: Once the chart is created, you can customize various chart elements such as titles, legends, axes, gridlines, data labels, and colors. Excel provides a set of formatting options that allow you to fine-tune the appearance of the chart to match your preferences.</p></li>
+<li><p>Interacting with the Chart: Pivot charts are dynamic and interactive. You can drill down into the underlying data by clicking on chart elements, change chart views, and filter the data directly from the chart. This provides a more engaging and exploratory experience while analyzing the data.</p></li>
+</ul>
+</div>
+<div id="formatting-row-and-column-headers" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Formatting Row and Column Headers:<a href="custom-filters-in-a-pivot-table.html#formatting-row-and-column-headers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Row and column headers in a pivot table provide important contextual information about the data. Formatting these headers enhances the visual clarity and organization of the pivot table. Here are some formatting options for row and column headers:</p>
+<ul>
+<li><p>Font and Font Formatting: You can modify the font type, size, color, and style (bold, italic, underline) of the row and column headers. This allows you to emphasize the headers and improve their readability within the pivot table.</p></li>
+<li><p>Background Color: Excel enables you to apply background colors or shading to the row and column headers. This helps in visually differentiating the headers from the data cells and improves the overall appearance of the pivot table.</p></li>
+<li><p>Borders and Gridlines: Applying borders and gridlines to the row and column headers adds structure and delineation to the pivot table. Excel provides various border styles and thickness options that allow you to customize the appearance of the headers.</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="customizing-pivot-tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aggregating-data-with-pivot-tables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-customizing-pivot-tables.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
